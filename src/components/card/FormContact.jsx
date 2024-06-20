@@ -1,15 +1,19 @@
 import { useState } from 'react';
 import CardAsideContact from './CardAsideContact';
+import axios from 'axios'; 
 
 export default function FormContact() {
   const [phone, setPhone] = useState('');
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [mensagem, setMensagem] = useState('');
 
   function maskPhone(event) {
     const inputNumber = event.target.value.replace(/\D/g, ''); 
     let maskedNumber = '';
 
     if (!inputNumber) {
-      maskedNumber = ''; // Se o campo estiver vazio, não exibe nada
+      maskedNumber = ''; 
     } else if (inputNumber.length <= 2) {
       maskedNumber = `(${inputNumber}`;
     } else if (inputNumber.length <= 7) {
@@ -21,8 +25,34 @@ export default function FormContact() {
     setPhone(maskedNumber);
   }
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+  
+      const response = await axios.post('http://localhost:3001/send-email', {
+        nome,
+        telefone: phone.replace(/\D/g, ''), 
+        email,
+        mensagem
+      });
+
+      console.log(response.data); 
+      alert('Formulário enviado com sucesso!'); 
+
+  
+      setNome('');
+      setPhone('');
+      setEmail('');
+      setMensagem('');
+    } catch (error) {
+      console.error('Erro ao enviar formulário:', error);
+      alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente mais tarde.');
+    }
+  };
+
   return (
-    <form className="w-full mx-24 mt-20 mb-32">
+    <form className="w mx-24 mt-20 mb-32" onSubmit={handleSubmit}>
       <h2 className="font-semibold text-2xl text-orange-p mb-4">Envie-nos uma mensagem</h2>
       <p className="w-2/4 text-gray-400">
         Agradecemos o seu interesse. Solicitamos que preencha o formulário abaixo com suas
@@ -37,6 +67,8 @@ export default function FormContact() {
               type="text"
               placeholder="Nome"
               style={{ flexGrow: 2 }}
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
               required
             />
             <input
@@ -51,15 +83,17 @@ export default function FormContact() {
           </div>
           <input
             className="my-4 border outline-none w-full border-gray-200 rounded-md py-1 px-2 text-black"
-            type="text"
+            type="email"
             placeholder="E-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
           <textarea
             className="my-4 border outline-none w-full h-40 border-gray-200 rounded-md py-1 px-2 text-black"
             placeholder="Mensagem"
-            name=""
-            id=""
+            value={mensagem}
+            onChange={(e) => setMensagem(e.target.value)}
           />
         </div>
         <CardAsideContact />
