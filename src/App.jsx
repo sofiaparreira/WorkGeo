@@ -1,10 +1,10 @@
-// src/App.tsx
+// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './HomePage';
 import Contact from './Contact';
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <Router>
       <Routes>

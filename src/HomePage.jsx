@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Home from './components/sections/Home'
 import Services from './components/sections/Services'
 import Area from './components/sections/Area'

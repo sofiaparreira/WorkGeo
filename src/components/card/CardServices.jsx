@@ -1,12 +1,9 @@
+// src/CardServices.jsx
 import React from 'react';
 import styled from 'styled-components';
 import banner01 from '../../assets/images/banners/bg-img1.jpg';
 
-interface CardServicesProps {
-    text: string; 
-}
-
-const CardServices: React.FC<CardServicesProps> = ({ text }) => {
+const CardServices = ({ text }) => {
     return (
         <CardContainer>
             <ImgCard className='border-8 border-gray-300' />

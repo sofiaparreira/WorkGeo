@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import banner01 from '../../assets/images/banners/bg-img1.jpg';
-import NavBar from '../NavBar';
+import NavBar from '../card/NavBar';
 
 
 export default function Home() {

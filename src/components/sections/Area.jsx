@@ -1,21 +1,19 @@
+// src/Area.jsx
 import React from 'react';
 import Title from '../text/Title';
 import areaMina from '../../assets/images/area-mina.png';
 import areaMeio from '../../assets/images/area-meio.png';
 import areaIfra from '../../assets/images/area-infra.png';
-import areaAgri from '../../assets/images/area-agri.png'
+import areaAgri from '../../assets/images/area-agri.png';
 
 import styled from 'styled-components';
 
-interface DivImageAreasProps {
-    bgImg: string;
-}
-
-const Area: React.FC = () => {
+const Area = () => {
     return (
         <section className='mt-32'>
             <Title text='ÁREAS DE ATUAÇÃO' />
             <div className='flex'>
+
                 <DivImageAreas className='w-screen relative' bgImg={areaMina}>
                     <div className='absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-70'>
                         <h2 className='text-white text-2xl font-base text-center'>Mineração</h2>
@@ -49,7 +47,7 @@ const Area: React.FC = () => {
     );
 }
 
-const DivImageAreas = styled.div<DivImageAreasProps>`
+const DivImageAreas = styled.div`
     background-image: url(${props => props.bgImg});
     background-size: cover;
     background-position: center;

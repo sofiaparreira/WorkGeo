@@ -1,8 +1,8 @@
-import React from 'react'
-import NavBar from './components/NavBar'
+import NavBar from './components/card/NavBar'
 import banner01 from './assets/images/banners/bg-img1.jpg';
 import styled from 'styled-components';
-import FormContact from './components/FormContact';
+import FormContact from './components/card/FormContact';
+import Footer from './components/sections/Footer';
 
 
 export default function Contact() {
@@ -17,6 +17,7 @@ export default function Contact() {
 
 
             <FormContact />
+            <Footer />
         </div>
     )
 }
