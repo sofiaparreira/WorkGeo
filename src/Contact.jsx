@@ -1,9 +1,10 @@
-import NavBar from './components/card/NavBar'
+import NavBar from './components/menu/NavBar'
 import banner01 from './assets/images/banners/bg-img1.jpg';
 import styled from 'styled-components';
 import FormContact from './components/card/FormContact';
 import Footer from './components/sections/Footer';
-
+import { Link } from "react-router-dom";
+import FooterMobile from "./components/sections/FooterMobile";
 
 export default function Contact() {
     return (
@@ -17,11 +18,27 @@ export default function Contact() {
 
 
             <FormContact />
-            <Footer />
+            <FooterWrapper>
+        <Footer />
+      </FooterWrapper>
+      <FooterMobileWrapper>
+       <FooterMobile/> {/* Renderize o componente FooterMobile aqui */}
+      </FooterMobileWrapper>
         </div>
     )
 }
 
+const FooterWrapper = styled.div`
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const FooterMobileWrapper = styled.div`
+  @media (min-width: 769px) {
+    display: none;
+  }
+`;
 
 
 const ContainerImage = styled.section`

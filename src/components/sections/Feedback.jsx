@@ -6,7 +6,7 @@ import imgFeedback from '../../assets/images/feedback-image.png';
 
 export default function Feedback() {
   return (
-    <section className='bg-gray-100 pt-1 pb-24'>
+    <section className='pt-1 pb-24'>
       <Title text='FEEDBACK DE CLIENTES' />
 
       <div className='flex justify-around items-center'>

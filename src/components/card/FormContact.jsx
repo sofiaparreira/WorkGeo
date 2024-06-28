@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import CardAsideContact from './CardAsideContact';
 import axios from 'axios'; 
+import styled from 'styled-components';
 
 export default function FormContact() {
   const [phone, setPhone] = useState('');
@@ -52,16 +53,17 @@ export default function FormContact() {
   };
 
   return (
-    <form className="w mx-24 mt-20 mb-32" onSubmit={handleSubmit}>
-      <h2 className="font-semibold text-2xl text-orange-p mb-4">Envie-nos uma mensagem</h2>
-      <p className="w-2/4 text-gray-400">
+    <Form className="w mx-24 mt-20 mb-32" onSubmit={handleSubmit}>
+      <TitleForm className="font-semibold text-2xl text-orange-p mb-4">Envie-nos uma mensagem</TitleForm>
+      <Paragraph className="w-2/4 text-gray-400">
         Agradecemos o seu interesse. Solicitamos que preencha o formulário abaixo com suas
         informações e sua mensagem. Nossa equipe responderá o mais breve possível. Caso prefira,
         você também pode nos contatar diretamente por e-mail ou WhatsApp.
-      </p>
-      <div className="flex justify-between">
-        <div className="w-2/4 mt-12">
-          <div className="flex gap-8">
+      </Paragraph>
+      
+      <ContainerPai className="flex justify-between">
+        <ContactForm className="w-2/4 mt-12">
+          <InputDiv className="flex gap-8">
             <input
               className="mb-2 border outline-none flex-grow border-gray-200 rounded-md py-1 px-2 text-black"
               type="text"
@@ -80,7 +82,7 @@ export default function FormContact() {
               onChange={maskPhone}
               required
             />
-          </div>
+          </InputDiv>
           <input
             className="my-4 border outline-none w-full border-gray-200 rounded-md py-1 px-2 text-black"
             type="email"
@@ -95,12 +97,95 @@ export default function FormContact() {
             value={mensagem}
             onChange={(e) => setMensagem(e.target.value)}
           />
-        </div>
+        </ContactForm>
+
         <CardAsideContact />
-      </div>
-      <button type="submit" className="bg-orange-p px-6 py-2 text-white rounded-md">
-        Enviar mensagem
-      </button>
-    </form>
+      </ContainerPai>
+      <SubmitWrapper>
+        <Submit type="submit" className="bg-orange-p px-6 py-2 text-white rounded-md">
+          Enviar mensagem
+        </Submit>
+      </SubmitWrapper>
+      <ParagraphMobile className='hidden text-gray-400 '>
+          <h2 className='text-lg font-semibold mb-4 text-center mt-4'>Informações de Contato: </h2>
+        <div className='flex justify-between gap-4 items-start mt-2 mb-8'>
+          <div className='border border-gray-100 py-2 px-2 rounded-md'>
+            <p className='text-sm mb-4'>+55 (15) 99757-7704</p>
+             <p className='text-sm '>+55 (31) 99234-1063</p>
+             <p className='text-sm '>contato@workgeo.com.br</p>
+          </div>
+           <div className='border-gray-100 py-2 px-2 rounded-md border'>
+
+             <p className='text-sm'><span className='font-medium'>Localização:</span> <br /> Belo Horizotne <br /> Centro, Rua dos dos Tupinambás 179</p>
+           </div>
+        </div>
+      </ParagraphMobile>
+    </Form>
   );
 }
+
+const Paragraph = styled.p`
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const SubmitWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  @media (min-width: 769px) {
+    justify-content: flex-start;
+  }
+`;
+
+const Submit = styled.button`
+  @media (max-width: 768px) {
+    margin: auto;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+`;
+
+const ParagraphMobile = styled.div`
+  @media (max-width: 768px) {
+    display: flex;
+    margin: auto 2px;
+    width: 100%;
+    flex-direction: column;
+  }
+`;
+
+const Form = styled.form`
+  @media (max-width: 768px) {
+    width: 96%;
+    margin: 16px auto;
+  }
+`;
+
+const ContainerPai = styled.div`
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin: 0;
+  }
+`;
+
+const ContactForm = styled.div`
+  @media (max-width: 768px) {
+    width: 90%;
+    margin: 16px auto;
+  }
+`;
+
+const InputDiv = styled.div`
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 8px;
+  }
+`;
+
+const TitleForm = styled.div`
+  @media (max-width: 768px) {
+    width: 100%;
+    text-align: center;
+  }
+`;
