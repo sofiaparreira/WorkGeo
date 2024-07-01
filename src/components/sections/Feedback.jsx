@@ -17,7 +17,7 @@ export default function Feedback() {
 
             <ContentOrange className='bg-orange-p w-64 px-4 py-4 mx-32 rounded-md'>
               <span className='text-white text-5xl font-semibold'>100%</span>
-              <p className='text-white mt-2 text-lg '>Feedbacks Positivos</p>
+              <p className='text-white mt-2 text-lg '>Feedbacks Positivos </p>
             </ContentOrange>
 
           </ContentOverFilter>
