@@ -50,7 +50,7 @@ export default function AboutUs() {
         <Footer />
       </FooterWrapper>
       <FooterMobileWrapper>
-        <FooterMobile /> {/* Renderize o componente FooterMobile aqui */}
+        <FooterMobile /> 
       </FooterMobileWrapper>
     </>
   );
