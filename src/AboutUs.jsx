@@ -24,33 +24,33 @@ export default function AboutUs() {
       <ContainerPai className="flex justify-around mt-32">
         <img src={imgAboutUs} alt="" />
 
-        <div className="w-2/5">
+        <ContentP className="w-2/5 content-wrapper">
           <Logo className="w-32 m-auto" src={logo} alt="" />
 
-          <Paragraph className="mt-16 mb-6 ">
+          <Paragraph className="mt-16 mb-6">
             Somos uma empresa de engenharia com base tecnológica e foco em
             geoprocessamento, processamento de imagens e inovações para
             Indústria 4.0
           </Paragraph>
           <Paragraph className="mb-6">
             Possuímos expertise na execução de serviços de topografia através de
-            aeronaves remotamente pilotadas.{" "}
+            aeronaves remotamente pilotadas.
           </Paragraph>
           <Paragraph className="mb-6">
             Atuamos há 12 anos no mercado gerando soluções em modelos, extraímos
             resultados para diversas análises de Engenharia e Ambiental
           </Paragraph>
-        </div>
+        </ContentP>
       </ContainerPai>
 
       <CardOurNumbers />
       <Feedback />
-      
+
       <FooterWrapper>
         <Footer />
       </FooterWrapper>
       <FooterMobileWrapper>
-       <FooterMobile/> {/* Renderize o componente FooterMobile aqui */}
+        <FooterMobile /> {/* Renderize o componente FooterMobile aqui */}
       </FooterMobileWrapper>
     </>
   );
@@ -75,7 +75,6 @@ const ContainerImage = styled.section`
   height: 28vh;
   position: relative;
 
-  /* Gradiente de fundo */
   &::before {
     content: "";
     position: absolute;
@@ -95,6 +94,9 @@ const ContainerImage = styled.section`
 const ContainerPai = styled.div`
   @media screen and (max-width: 768px) {
     flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 16px; 
   }
 `;
 
@@ -107,6 +109,15 @@ const Logo = styled.img`
 const Paragraph = styled.p`
   @media screen and (max-width: 768px) {
     width: 100%;
-    margin: 8px 0px;
+    margin: 0;
+    padding: 8px 0;
+    text-align: justify;
+  }
+`;
+
+const ContentP = styled.div`
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 32px 16px; 
   }
 `;

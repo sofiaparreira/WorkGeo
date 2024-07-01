@@ -63,10 +63,11 @@ export default function NavBar() {
 
 const Nav = styled.nav`
   display: flex;
-  justify-content: center; // Alterado para center para centralizar os itens
+ // Alterado para center para centralizar os itens
   @media screen and (max-width: 768px) {
     width: 100%;
     padding: 16px 0px;
+      justify-content: center;
   }
 `;
 

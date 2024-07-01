@@ -37,6 +37,11 @@ const BgImageFeedback = styled.div`
   background-size: cover;
   background-position: center;
   overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites */
+
+
+   @media (max-width: 768px) {
+    display: none;
+   }
 `;
 
 const ContentOverFilter = styled.div`

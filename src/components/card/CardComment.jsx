@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styled from "styled-components";
 
 export default function CardComment() {
 
@@ -27,7 +28,7 @@ export default function CardComment() {
 
 
     return (
-        <div className="w-1/3 pl-16 py-16">
+        <ContainerMain className="w-1/3 pl-16 py-16">
 
             <div className="flex py-4 gap-1">
                 
@@ -58,6 +59,14 @@ export default function CardComment() {
                     </svg>
                 </div>
             </div>
-        </div>
+        </ContainerMain>
     );
 }
+
+
+const ContainerMain = styled.div `
+     @media (max-width: 768px) {
+     width: 100%;
+     padding: 0 32px;
+     }
+`
