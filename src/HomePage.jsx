@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Fade from "react-reveal/Fade";
 import Slide from "react-reveal/Slide";
 import Home from "./components/sections/Home";
@@ -23,6 +23,8 @@ const FooterMobileWrapper = styled.div`
 `;
 
 function App() {
+
+
   return (
     <>
       <Fade>
@@ -44,8 +46,9 @@ function App() {
         <Footer />
       </FooterWrapper>
       <FooterMobileWrapper>
-       <FooterMobile/>
+        <FooterMobile />
       </FooterMobileWrapper>
+    
     </>
   );
 }

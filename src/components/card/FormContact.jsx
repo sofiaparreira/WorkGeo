@@ -1,26 +1,29 @@
-import { useState } from 'react';
-import CardAsideContact from './CardAsideContact';
-import axios from 'axios'; 
-import styled from 'styled-components';
+import { useState } from "react";
+import CardAsideContact from "./CardAsideContact";
+import axios from "axios";
+import styled from "styled-components";
 
 export default function FormContact() {
-  const [phone, setPhone] = useState('');
-  const [nome, setNome] = useState('');
-  const [email, setEmail] = useState('');
-  const [mensagem, setMensagem] = useState('');
+  const [phone, setPhone] = useState("");
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [mensagem, setMensagem] = useState("");
 
   function maskPhone(event) {
-    const inputNumber = event.target.value.replace(/\D/g, ''); 
-    let maskedNumber = '';
+    const inputNumber = event.target.value.replace(/\D/g, "");
+    let maskedNumber = "";
 
     if (!inputNumber) {
-      maskedNumber = ''; 
+      maskedNumber = "";
     } else if (inputNumber.length <= 2) {
       maskedNumber = `(${inputNumber}`;
     } else if (inputNumber.length <= 7) {
       maskedNumber = `(${inputNumber.slice(0, 2)}) ${inputNumber.slice(2)}`;
     } else {
-      maskedNumber = `(${inputNumber.slice(0, 2)}) ${inputNumber.slice(2, 7)}-${inputNumber.slice(7, 11)}`;
+      maskedNumber = `(${inputNumber.slice(0, 2)}) ${inputNumber.slice(
+        2,
+        7
+      )}-${inputNumber.slice(7, 11)}`;
     }
 
     setPhone(maskedNumber);
@@ -30,39 +33,42 @@ export default function FormContact() {
     event.preventDefault();
 
     try {
-  
-      const response = await axios.post('http://localhost:3001/send-email', {
+      const response = await axios.post("http://localhost:3001/send-email", {
         nome,
-        telefone: phone.replace(/\D/g, ''), 
+        telefone: phone.replace(/\D/g, ""),
         email,
-        mensagem
+        mensagem,
       });
 
-      console.log(response.data); 
-      alert('Formulário enviado com sucesso!'); 
+      console.log(response.data);
+      alert("Formulário enviado com sucesso!");
 
-  
-      setNome('');
-      setPhone('');
-      setEmail('');
-      setMensagem('');
+      setNome("");
+      setPhone("");
+      setEmail("");
+      setMensagem("");
     } catch (error) {
-      console.error('Erro ao enviar formulário:', error);
-      alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente mais tarde.');
+      console.error("Erro ao enviar formulário:", error);
+      alert(
+        "Ocorreu um erro ao enviar o formulário. Por favor, tente novamente mais tarde."
+      );
     }
   };
 
   return (
-    <Form className="w mx-24 mt-20 mb-32" onSubmit={handleSubmit}>
-      <TitleForm className="font-semibold text-2xl text-orange-p mb-4">Envie-nos uma mensagem</TitleForm>
-      <Paragraph className="w-2/4 text-gray-400">
-        Agradecemos o seu interesse. Solicitamos que preencha o formulário abaixo com suas
-        informações e sua mensagem. Nossa equipe responderá o mais breve possível. Caso prefira,
-        você também pode nos contatar diretamente por e-mail ou WhatsApp.
+    <Form className="w xl:mx-24 mx-8 mt-20 mb-32" onSubmit={handleSubmit}>
+      <TitleForm className="font-semibold text-2xl text-orange-p mb-4">
+        Envie-nos uma mensagem
+      </TitleForm>
+      <Paragraph className="lg:w-2/4 w-3/5 text-gray-400">
+        Agradecemos o seu interesse. Solicitamos que preencha o formulário
+        abaixo com suas informações e sua mensagem. Nossa equipe responderá o
+        mais breve possível. Caso prefira, você também pode nos contatar
+        diretamente por e-mail ou WhatsApp.
       </Paragraph>
-      
+
       <ContainerPai className="flex justify-between">
-        <ContactForm className="w-2/4 mt-12">
+        <ContactForm className="lg:w-2/4 w-3/5 mt-12">
           <InputDiv className="flex gap-8">
             <input
               className="mb-2 border outline-none flex-grow border-gray-200 rounded-md py-1 px-2 text-black"
@@ -102,22 +108,30 @@ export default function FormContact() {
         <CardAsideContact />
       </ContainerPai>
       <SubmitWrapper>
-        <Submit type="submit" className="bg-orange-p px-6 py-2 text-white rounded-md">
+        <Submit
+          type="submit"
+          className="bg-orange-p px-6 py-2 text-white rounded-md"
+        >
           Enviar mensagem
         </Submit>
       </SubmitWrapper>
-      <ParagraphMobile className='hidden text-gray-400 '>
-          <h2 className='text-lg font-semibold mb-4 text-center mt-4'>Informações de Contato: </h2>
-        <div className='flex justify-between gap-4 items-start mt-2 mb-8'>
-          <div className='border border-gray-100 py-2 px-2 rounded-md'>
-            <p className='text-sm mb-4'>+55 (15) 99757-7704</p>
-             <p className='text-sm '>+55 (31) 99234-1063</p>
-             <p className='text-sm '>contato@workgeo.com.br</p>
-          </div>
-           <div className='border-gray-100 py-2 px-2 rounded-md border'>
 
-             <p className='text-sm'><span className='font-medium'>Localização:</span> <br /> Belo Horizotne <br /> Centro, Rua dos dos Tupinambás 179</p>
-           </div>
+      <ParagraphMobile className="hidden text-gray-400">
+        <h2 className="text-lg font-semibold mb-4 text-center mt-4">
+          Informações de Contato:{" "}
+        </h2>
+        <div className="flex justify-between gap-4 items-start mt-2 mb-8">
+          <div className="border border-gray-100 py-2 px-2 rounded-md">
+            <p className="text-sm mb-4">+55 (15) 99757-7704</p>
+            <p className="text-sm ">+55 (31) 99234-1063</p>
+            <p className="text-sm ">contato@workgeo.com.br</p>
+          </div>
+          <div className="border-gray-100 py-2 px-2 rounded-md border">
+            <p className="text-sm">
+              <span className="font-medium">Localização:</span> <br /> Belo
+              Horizotne <br /> Centro, Rua dos dos Tupinambás 179
+            </p>
+          </div>
         </div>
       </ParagraphMobile>
     </Form>

@@ -5,9 +5,9 @@ export default function CardComment() {
 
     const dataFeedbacks = [
         {
-            description: 'description from this feedback',
-            company: 'name company',
-            name: 'people name',
+            description: '"Sobre a Horus mérito total de vocês, serviço bom, com qualidade e preço justo. Continuem nessa pegada que vão longe, como dizem “foguete não tem ré."',
+            company: 'Paulo Roberto',
+            name: 'Gerdau Divinopolis',
 
         }, 
         {

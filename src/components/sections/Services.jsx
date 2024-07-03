@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import CardServices from '../card/CardServices';
 import Title from '../text/Title';
+import { Link } from 'react-router-dom';
 
 export default function Services() {
   const [mobileData, setMobileData] = useState([]);
@@ -31,26 +32,51 @@ export default function Services() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []); 
+  }, []);
 
   return (
-    <ServicosSection className='mt-24 mx-40'>
+    <ServicosSection className='mt-24 xl:mx-40 lg:mx-8 md:mx-2'>
       <Title text='NOSSOS SERVIÇOS' />
       <GridContainer>
         {mobileData.length > 0 ? (
           mobileData.map((text, index) => (
-            <CardServices key={index} text={text} />
+            <Link key={index} to={`/service/${encodeURIComponent(text)}`}>
+              <CardServices text={text} />
+            </Link>
           ))
         ) : (
           <>
-            <CardServices text='Cálculo de Volume de Pilhas (material estocado)' />
-            <CardServices text='Monitoramento de estoque (pilhas)' />
-            <CardServices text='Classificação de feições (vetorização)' />
-            <CardServices text='Monitoramento de barragens' />
-            <CardServices text='Estudo de capacidade volumétrica de pátios' />
-            <CardServices text='Monitoramento de faixa de domínio/servidão de minerodutos' />
-            <CardServices text='Estudo de granulometria de rochas' />
-            <CardServices text='Cálculo de corte e aterro' />
+            <Link to="/service/calculo-de-volume">
+              <CardServices text='Cálculo de Volume de Pilhas (material estocado)' />
+            </Link>
+
+            <Link to='/service/monitoramento-de-estoque'>
+              <CardServices text='Monitoramento de estoque (pilhas)' />
+            </Link>
+
+            <Link to='/service/classificacao-de-feicoes'>
+              <CardServices text='Classificação de feições (vetorização)' />
+            </Link>
+
+            <Link to='/service/monitoramento-de-barragens'>
+              <CardServices text='Monitoramento de barragens' />
+            </Link>
+
+            <Link to='/service/capacidade-volumetrica-de-patios'>
+              <CardServices text='Estudo de capacidade volumétrica de pátios' />
+            </Link>
+
+            <Link to='/service/monitoramento-de-faixa-de-dominio'>
+              <CardServices text='Monitoramento de faixa de domínio/servidão de minerodutos' />
+            </Link>
+
+            <Link to='/service/estudo-granulometria-de-rochas'>
+              <CardServices text='Estudo de granulometria de rochas' />
+            </Link>
+
+            <Link to='calculo-de-corte-e-aterro'>
+              <CardServices text='Cálculo de corte e aterro' />
+            </Link>
           </>
         )}
       </GridContainer>
@@ -60,7 +86,7 @@ export default function Services() {
 
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr); 
+  grid-template-columns: repeat(4, 1fr);
   justify-items: center;
   margin: 88px 32px;
   row-gap: 88px;
@@ -69,7 +95,7 @@ const GridContainer = styled.div`
   @media screen and (max-width: 768px) {
     margin: 0px;
     grid-template-columns: repeat(2, 1fr);
-      row-gap: 40px;
+    row-gap: 40px;
   }
 `;
 

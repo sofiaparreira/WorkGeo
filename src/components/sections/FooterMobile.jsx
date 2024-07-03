@@ -14,7 +14,7 @@ const FooterMobile = () => {
       </div>
 
       <div className="flex mt-12 justify-around">
-        <a href="https://wa.me/5515997577704">
+        <a target="_blank" href="https://wa.me/5515997577704">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="28"
@@ -28,7 +28,7 @@ const FooterMobile = () => {
           </svg>
         </a>
 
-        <a href="https://www.instagram.com/work.geo/">
+        <a target="_blank" href="https://www.instagram.com/work.geo/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="28"
@@ -55,7 +55,7 @@ const FooterMobile = () => {
           </svg>
         </a>
 
-        <a href="">
+        <a target="_blank" href="https://br.linkedin.com/company/workgeo">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="28"

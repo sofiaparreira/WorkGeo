@@ -15,7 +15,7 @@ export default function Feedback() {
         <BgImageFeedback>
           <ContentOverFilter>
 
-            <ContentOrange className='bg-orange-p w-64 px-4 py-4 mx-32 rounded-md'>
+            <ContentOrange className='bg-orange-p w-64 px-4 py-4 xl:mx-32 mx-16 rounded-md'>
               <span className='text-white text-5xl font-semibold'>100%</span>
               <p className='text-white mt-2 text-lg '>Feedbacks Positivos </p>
             </ContentOrange>
@@ -38,6 +38,15 @@ const BgImageFeedback = styled.div`
   background-position: center;
   overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites */
 
+  @media(max-width: 1200px) {
+  width: 422px;
+  height: 240px;
+  }
+
+  @media(max-width: 900px) {
+  width: 352px;
+  height: 220px;
+  }
 
    @media (max-width: 768px) {
     display: none;
@@ -65,5 +74,7 @@ const ContentOrange = styled.div`
   justify-content: center;
   text-align: center;
   z-index: 2;
+
+
 `;
 

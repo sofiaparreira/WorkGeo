@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import banner01 from '../../assets/images/banners/bg-img1.jpg';
 
-const CardServices = ({ text }) => {
+
+const CardServices = ({ text, onClick }) => {
     return (
-        <CardContainer className='cursor-pointer'>
+        <CardContainer onClick={onClick} className='cursor-pointer'>
             <ImgCard />
-            <Paragraph className='text-center w-64 pt-4'>{text}</Paragraph> 
+            <Paragraph className='text-center pt-4'>{text}</Paragraph>
         </CardContainer>
     );
 }
@@ -15,7 +16,7 @@ const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px; 
+    gap: 4px;
 `;
 
 const ImgCard = styled.div`
@@ -25,21 +26,21 @@ const ImgCard = styled.div`
     background-size: cover;
     background-position: center;
     border-radius: 50%;
-    border: 8px solid #ccc; /* Cor da borda cinza */
+    border: 8px solid #ccc;
     transition: border-color 0.4s ease-in-out;
 
     &:hover {
-        border-color: orange; /* Mudança da cor da borda para laranja no hover */
+        border-color: orange;
     }
-       
+
     @media screen and (max-width: 768px) {
         width: 120px;
         height: 120px;
     }
 `;
 
-const Paragraph = styled.p `
-    width: 112px;
-`
+const Paragraph = styled.p`
+    width: 80%;
+`;
 
 export default CardServices;

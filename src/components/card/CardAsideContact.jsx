@@ -2,7 +2,7 @@
 import styled from "styled-components"
 export default function CardAsideContact() {
   return (
-    <Container className='w-1/4'>
+    <Container className='xl:w-1/4 w-1/3'>
 
       <div className='flex pb-8 items-center'>
         <svg className='mr-4' xmlns="http://www.w3.org/2000/svg" height="22" width="20.5" viewBox="0 0 384 512">

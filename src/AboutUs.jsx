@@ -12,7 +12,7 @@ import FooterMobile from "./components/sections/FooterMobile"; // Importe o comp
 export default function AboutUs() {
   return (
     <>
-      <ContainerImage>
+      <ContainerImage className="sm:pb-24 pb-8">
         <NavBar />
         <div className="relative z-10 mt-8 flex justify-center flex-col">
           <h1 className="text-orange-p font-bold text-4xl tracking-wider text-center">
@@ -21,8 +21,8 @@ export default function AboutUs() {
         </div>
       </ContainerImage>
 
-      <ContainerPai className="flex justify-around mt-32">
-        <img src={imgAboutUs} alt="" />
+      <ContainerPai className="flex justify-center gap-12 mt-32">
+        <img className=" xl:w-1/3 w-5/12 h-auto object-contain " src={imgAboutUs} alt="" />
 
         <ContentP className="w-2/5 content-wrapper">
           <Logo className="w-32 m-auto" src={logo} alt="" />
@@ -72,7 +72,7 @@ const ContainerImage = styled.section`
   background-image: url(${banner01});
   background-size: cover;
   background-position: center;
-  height: 28vh;
+
   position: relative;
 
   &::before {

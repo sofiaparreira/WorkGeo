@@ -6,20 +6,20 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <>
-      <ContainerImage>
+      <ContainerImage className="pb-16  sm:pb-64">
         <NavBar />
-        <div className="relative z-10 mt-40 flex justify-center flex-col">
+        <div className="relative z-10 mt-24 sm:mt-40 flex justify-center flex-col">
           <h1 className="text-orange-p font-bold text-5xl tracking-wider text-center">
             WORKGEO
           </h1>
-          <Paragraph className="text-white text-center text-lg font-extralight w-2/5 mx-auto mt-8">
+          <Paragraph className="text-white text-center text-lg font-extralight xl:w-2/5 w-3/5 mx-auto mt-16">
             Empresa de engenharia com base tecnológica e foco em
             geoprocessamento, processamento de imagens e inovações para
             Indústria 4.0
           </Paragraph>
           <StyledLink
             to="/sobre-nos"
-            className="inline-block text-white py-1 text-lg tracking-wider mx-auto mt-8 items-center gap-4"
+            className="inline-block text-white py-1 text-lg tracking-wider mx-auto mt-12 items-center gap-4"
           >
             saiba mais
             <svg
@@ -44,7 +44,6 @@ const ContainerImage = styled.section`
   background-image: url(${banner01});
   background-size: cover;
   background-position: center;
-  height: 80vh;
   position: relative;
 
   /* Gradiente de fundo */
