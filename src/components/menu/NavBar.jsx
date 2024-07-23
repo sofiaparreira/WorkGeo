@@ -7,6 +7,7 @@ const navigation = [
   { name: 'HOME', href: '/' },
   { name: 'SOBRE NÓS', href: '/sobre-nos' },
   { name: 'CONTATO', href: '/contato' },
+  { name: 'ÁREA RESTRITA', href: '/painel' },
 ];
 
 function classNames(...classes) {

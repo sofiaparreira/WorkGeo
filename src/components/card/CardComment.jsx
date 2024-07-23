@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import gerdau from '../../assets/images/clients/gerdau.png'
 
 export default function CardComment() {
 
@@ -8,12 +9,14 @@ export default function CardComment() {
             description: '"Sobre a Horus mérito total de vocês, serviço bom, com qualidade e preço justo. Continuem nessa pegada que vão longe, como dizem “foguete não tem ré."',
             company: 'Paulo Roberto',
             name: 'Gerdau Divinopolis',
+            img: gerdau,
 
         }, 
         {
             description: '2 description from this feedback',
             company: '2 name company',
             name: '2 people name',
+            img: '',
             
         }
     ]
@@ -24,8 +27,8 @@ export default function CardComment() {
     }
 
     const backFeedback = () => {
-        setIdItem((idItem - 1 + dataFeedbacks.length) % dataFeedbacks.length);    }
-
+        setIdItem((idItem - 1 + dataFeedbacks.length) % dataFeedbacks.length);    
+    }
 
     return (
         <ContainerMain className="w-1/3 pl-16 py-16">
@@ -39,11 +42,10 @@ export default function CardComment() {
                 ))}
             </div>
 
-
             <p className="mb-8">{dataFeedbacks[idItem].description}</p>
 
             <div className="flex items-center">
-                <img src="path-to-image.jpg" alt="User profile" className="w-10 h-10 rounded-full" />
+                <img src={dataFeedbacks[idItem].img} alt="User profile" className="w-10 h-10 rounded-full" />
                 <div className="ml-4">
                     <span className="block font-bold">{dataFeedbacks[idItem].name}</span>
                     <span className="block text-sm text-gray-500">{dataFeedbacks[idItem].company}</span>
@@ -63,10 +65,9 @@ export default function CardComment() {
     );
 }
 
-
-const ContainerMain = styled.div `
-     @media (max-width: 768px) {
-     width: 100%;
-     padding: 0 32px;
-     }
-`
+const ContainerMain = styled.div`
+    @media (max-width: 768px) {
+        width: 100%;
+        padding: 0 32px;
+    }
+`;

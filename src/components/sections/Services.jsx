@@ -3,6 +3,17 @@ import styled from 'styled-components';
 import CardServices from '../card/CardServices';
 import Title from '../text/Title';
 import { Link } from 'react-router-dom';
+import img01 from '../../assets/images/imgservices/calculodevolume.jpg'
+import img02 from '../../assets/images/imgservices/monitoramentodeestoque.jpg'
+import img03 from '../../assets/images/imgservices/classificacaodefeicoes.png'
+import img04 from '../../assets/images/imgservices/monitoramentodebarragens.jpg'
+import img05 from '../../assets/images/imgservices/estudodacapacidadevolumetricadepatios.jpg'
+import img06 from '../../assets/images/imgservices/monitoramentodefaixa.jpg'
+import img07 from '../../assets/images/imgservices/contagemindividuos-1.jpg'
+import img08 from '../../assets/images/imgservices/analisesambientais.png'
+
+
+
 
 export default function Services() {
   const [mobileData, setMobileData] = useState([]);
@@ -47,35 +58,35 @@ export default function Services() {
         ) : (
           <>
             <Link to="/service/calculo-de-volume">
-              <CardServices text='Cálculo de Volume de Pilhas (material estocado)' />
+              <CardServices img={img01}  text='Cálculo de Volume de Pilhas (material estocado)' />
             </Link>
 
             <Link to='/service/monitoramento-de-estoque'>
-              <CardServices text='Monitoramento de estoque (pilhas)' />
+              <CardServices img={img02} text='Monitoramento de Estoque (pilhas)' />
             </Link>
 
             <Link to='/service/classificacao-de-feicoes'>
-              <CardServices text='Classificação de feições (vetorização)' />
+              <CardServices img={img03} text='Classificação de Feições (vetorização)' />
             </Link>
 
             <Link to='/service/monitoramento-de-barragens'>
-              <CardServices text='Monitoramento de barragens' />
+              <CardServices img={img04} text='Monitoramento de Barragens' />
             </Link>
 
             <Link to='/service/capacidade-volumetrica-de-patios'>
-              <CardServices text='Estudo de capacidade volumétrica de pátios' />
+              <CardServices img={img05} text='Estudo de Capacidade Volumétrica de Pátios' />
             </Link>
 
             <Link to='/service/monitoramento-de-faixa-de-dominio'>
-              <CardServices text='Monitoramento de faixa de domínio/servidão de minerodutos' />
+              <CardServices img={img06} text='Monitoramento de Faixa de Domínio/Servidão de Minerodutos' />
             </Link>
 
-            <Link to='/service/estudo-granulometria-de-rochas'>
-              <CardServices text='Estudo de granulometria de rochas' />
+            <Link to='/service/contagem-de-individuos'>
+              <CardServices img={img07} text='Contagem de Indivíduos' />
             </Link>
 
-            <Link to='calculo-de-corte-e-aterro'>
-              <CardServices text='Cálculo de corte e aterro' />
+            <Link to='/service/analises-ambientais'>
+              <CardServices img={img08} text='Análises Ambientais' />
             </Link>
           </>
         )}

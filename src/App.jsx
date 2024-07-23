@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
-import HomePage from './HomePage';
-import Contact from './Contact';
-import AboutUs from './AboutUs';
+import HomePage from './pages/LandingPage/HomePage';
+import Contact from './pages/LandingPage/Contact';
+import AboutUs from './pages/LandingPage/AboutUs';
 import ServiceDetail from './ServiceDetail';
 
 const App = () => {

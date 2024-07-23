@@ -1,12 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import banner01 from '../../assets/images/banners/bg-img1.jpg';
 
-
-const CardServices = ({ text, onClick }) => {
+const CardServices = ({ text, onClick, img }) => {
     return (
         <CardContainer onClick={onClick} className='cursor-pointer'>
-            <ImgCard />
+            <ImgCard img={img} />
             <Paragraph className='text-center pt-4'>{text}</Paragraph>
         </CardContainer>
     );
@@ -22,7 +20,7 @@ const CardContainer = styled.div`
 const ImgCard = styled.div`
     width: 152px;
     height: 152px;
-    background-image: url(${banner01});
+    background-image: ${({ img }) => `url(${img})`};
     background-size: cover;
     background-position: center;
     border-radius: 50%;

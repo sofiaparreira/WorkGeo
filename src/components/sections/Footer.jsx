@@ -15,10 +15,7 @@ export default function Footer() {
                     </div>
                     <div>
                         <p>contato@workgeo.com.br</p>
-                        <div className='flex mt-2'>
-                            <input className='rounded-s-md w-80 px-2 text-black outline-none' placeholder='E-mail' type="text" />
-                            <input className='bg-orange-p py-1 px-4 rounded-e-md cursor-pointer' type="submit" />
-                        </div>
+                        
                     </div>
                 </div>
 

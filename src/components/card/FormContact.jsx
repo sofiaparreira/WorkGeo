@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CardAsideContact from "./CardAsideContact";
-import axios from "axios";
 import styled from "styled-components";
+import emailjs from '@emailjs/browser'
 
 export default function FormContact() {
   const [phone, setPhone] = useState("");
@@ -29,34 +29,36 @@ export default function FormContact() {
     setPhone(maskedNumber);
   }
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    try {
-      const response = await axios.post("http://localhost:3001/send-email", {
-        nome,
-        telefone: phone.replace(/\D/g, ""),
-        email,
-        mensagem,
-      });
-
-      console.log(response.data);
-      alert("Formulário enviado com sucesso!");
-
-      setNome("");
-      setPhone("");
-      setEmail("");
-      setMensagem("");
-    } catch (error) {
-      console.error("Erro ao enviar formulário:", error);
-      alert(
-        "Ocorreu um erro ao enviar o formulário. Por favor, tente novamente mais tarde."
-      );
+  function sendEmail(e) {
+    e.preventDefault(); 
+  
+    const templateParams = { 
+      from_name: nome,
+      message: mensagem,
+      email: email,
+      phonenumber: phone
     }
-  };
+  
+    emailjs.send("service_omv76o9", "template_mm5xnjk", templateParams, "Z7YWN5mROqhT_aLMQ")
+      .then((response) => {
+        console.log('EMAIL ENVIADO', response.status, response.text);
+        alert('Enviado com sucesso')
+        setMensagem('');
+        setNome('');
+        setEmail('');
+        setPhone('');
+
+      })
+      .catch((error) => {
+        console.error('Erro ao enviar email:', error);
+      });
+  }
+  
+
+
 
   return (
-    <Form className="w xl:mx-24 mx-8 mt-20 mb-32" onSubmit={handleSubmit}>
+    <Form className="w xl:mx-24 mx-8 mt-20 mb-32" onSubmit={sendEmail}>
       <TitleForm className="font-semibold text-2xl text-orange-p mb-4">
         Envie-nos uma mensagem
       </TitleForm>

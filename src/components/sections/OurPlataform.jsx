@@ -6,10 +6,10 @@ import styled from 'styled-components';
 
 export default function OurPlataform() {
     return (
-        <section className='mb-48 mt-24'>
+        <section className='mb-20 md:mb-48 mt-24'>
             <Title text={'NOSSA PLATAFORMA - SIGWEB'} />
 
-            <Container className='flex justify-between xl:mx-32  mx-8'>
+            <Container className='flex justify-between xl:mx-32 mx-8 '>
 
                 <ContainerImgs className='gap-8 flex ' >
                     <Imgs className='' src={sigweb01} alt="" />
@@ -52,6 +52,8 @@ const ContainerImgs = styled.div `
     @media screen and (max-width: 768px) {
         flex-direction: column;
         gap: 16px;
+        width: 100%;
+        margin: auto;
   }
         width: 20%;
         heigth: 20%;
@@ -63,6 +65,7 @@ const Imgs = styled.img`
         max-width: 90%;
         margin: auto;
     }
+
 
     width: 100%;
     heigth: auto;
